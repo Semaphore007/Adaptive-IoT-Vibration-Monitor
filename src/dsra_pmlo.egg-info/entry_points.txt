@@ -1,0 +1,2 @@
+[console_scripts]
+dsra-use-case = dsra_pmlo.use_case:main

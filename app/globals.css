@@ -1,0 +1,193 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-space), var(--font-geist), ui-sans-serif, sans-serif;
+
+  --color-teal: var(--teal);
+  --color-info: var(--info);
+  --color-warn: var(--warn);
+  --color-deep: var(--deep);
+  --color-code: var(--code);
+  --color-code-foreground: var(--code-foreground);
+
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  color-scheme: light;
+  --background: #f6faf8;
+  --foreground: #0e1f1a;
+  --card: #ffffff;
+  --card-foreground: #0e1f1a;
+  --popover: #ffffff;
+  --popover-foreground: #0e1f1a;
+  --primary: #047857;
+  --primary-foreground: #ffffff;
+  --secondary: #e6f4ee;
+  --secondary-foreground: #064e3b;
+  --muted: #edf4f1;
+  --muted-foreground: #4a5e57;
+  --accent: #e6f4ee;
+  --accent-foreground: #064e3b;
+  --destructive: #dc2626;
+  --border: #d5e5de;
+  --input: #d5e5de;
+  --ring: #059669;
+  --teal: #0f766e;
+  --info: #2563eb;
+  --warn: #c2410c;
+  --deep: #064e3b;
+  --code: #f8fafc;
+  --code-foreground: #0f172a;
+  --chart-1: #059669;
+  --chart-2: #2563eb;
+  --chart-3: #0f766e;
+  --chart-4: #ea580c;
+  --chart-5: #94a3b8;
+  --radius: 0.5rem;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #06110d;
+  --foreground: #e6f2ed;
+  --card: #0b1a15;
+  --card-foreground: #e6f2ed;
+  --popover: #0b1a15;
+  --popover-foreground: #e6f2ed;
+  --primary: #10b981;
+  --primary-foreground: #02130d;
+  --secondary: #10261f;
+  --secondary-foreground: #c8eedd;
+  --muted: #0f2019;
+  --muted-foreground: #93aba1;
+  --accent: #12291f;
+  --accent-foreground: #c8eedd;
+  --destructive: #f87171;
+  --border: #1d342b;
+  --input: #1d342b;
+  --ring: #34d399;
+  --teal: #2dd4bf;
+  --info: #60a5fa;
+  --warn: #fb923c;
+  --deep: #a7f3d0;
+  --code: #071813;
+  --code-foreground: #d7efe6;
+  --chart-1: #34d399;
+  --chart-2: #60a5fa;
+  --chart-3: #2dd4bf;
+  --chart-4: #fb923c;
+  --chart-5: #64748b;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-space), var(--font-geist), sans-serif;
+    letter-spacing: -0.02em;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+@utility bg-circuit {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' fill='none' stroke='%23059669' stroke-opacity='0.14' stroke-width='1'%3E%3Cpath d='M0 30h40l10 10h30M60 0v20l10 10v40M120 90H90l-10-10H50M30 120v-30l-10-10V60'/%3E%3Ccircle cx='80' cy='40' r='2.5'/%3E%3Ccircle cx='70' cy='70' r='2.5'/%3E%3Ccircle cx='50' cy='80' r='2.5'/%3E%3Ccircle cx='20' cy='60' r='2.5'/%3E%3C/svg%3E");
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@keyframes flow-x {
+  0% { left: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+@keyframes flow-y {
+  0% { top: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+@keyframes caret-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes soft-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 35%, transparent); }
+  50% { box-shadow: 0 0 0 6px transparent; }
+}
+
+.flow-dot-x {
+  animation: flow-x 2.6s linear infinite;
+}
+.flow-dot-y {
+  animation: flow-y 2.6s linear infinite;
+}
+.caret {
+  animation: caret-blink 1s step-end infinite;
+}
+.pulse-ring {
+  animation: soft-pulse 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .flow-dot-x,
+  .flow-dot-y,
+  .caret,
+  .pulse-ring {
+    animation: none;
+  }
+}

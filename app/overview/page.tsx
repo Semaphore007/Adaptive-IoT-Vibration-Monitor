@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { BadgeCheck, Lightbulb, ListChecks, MessageCircleQuestion, Sigma, TriangleAlert, Workflow, Layers, CheckCircle2 } from 'lucide-react'
+import { BadgeCheck, Lightbulb, ListChecks, MessageCircleQuestion, Sigma, Workflow, Layers, CheckCircle2 } from 'lucide-react'
 import { ComparisonTable } from '@/components/comparison-table'
 import { Pipeline } from '@/components/pipeline'
+import { ProblemStatementCard } from '@/components/problem-statement-card'
 import { Card, PageHeader, Section, SectionHeading, Notice, DataBadge } from '@/components/primitives'
 import { PROJECT } from '@/lib/constants'
 import { RESEARCH_METRICS, WORKFLOW_STEPS, SAMPLING_STRATEGIES } from '@/lib/project-data'
@@ -31,19 +32,7 @@ export default function OverviewPage() {
       
       <Section>
         <div className="grid gap-6 lg:grid-cols-2">
-          <details className="group overflow-hidden rounded-lg border border-border bg-card text-foreground transition-all duration-200 ease-out open:bg-primary open:text-primary-foreground open:shadow-md open:shadow-primary/10">
-            <summary className="flex cursor-pointer list-none items-center gap-2 rounded-lg bg-card px-4 py-3 text-left transition-all duration-200 group-open:bg-primary group-open:text-primary-foreground group-open:shadow-none sm:px-5">
-              <TriangleAlert className="size-4 shrink-0" aria-hidden="true" />
-              <h2 className="text-base font-bold sm:text-lg">Problem Statement</h2>
-              <span className="ml-auto rounded-full border border-current/30 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide">
-                Read
-              </span>
-            </summary>
-            <p className="border-t border-current/15 px-4 py-3 text-sm leading-relaxed opacity-95 sm:px-5 sm:py-4 sm:text-base">
-              Conventional IoT sensing systems often collect and transmit data at a fixed rate, even when the
-              environment is stable, leading to unnecessary sensing, communication and energy consumption.
-            </p>
-          </details>
+          <ProblemStatementCard text="Conventional IoT sensing systems often collect and transmit data at a fixed rate, even when the environment is stable, leading to unnecessary sensing, communication and energy consumption." />
           <Card className="p-6 border-l-4 border-l-primary">
             <div className="flex items-center gap-2 text-primary">
               <MessageCircleQuestion className="size-5" aria-hidden="true" />

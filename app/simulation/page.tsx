@@ -12,25 +12,21 @@ const WOKWI_LINKS = [
     title: 'Open ESP32 Simulation on Wokwi',
     url: LINKS.wokwiEsp32,
     description: 'Primary ESP32 simulator — flash and test firmware without hardware.',
-    primary: true,
   },
   {
     title: 'MPU6050 ESP32 Example',
     url: LINKS.wokwiMpuExample,
     description: 'Pre-wired ESP32 + MPU6050 project in Wokwi.',
-    primary: false,
   },
   {
     title: 'Wokwi ESP32 Documentation',
     url: LINKS.wokwiEsp32Docs,
     description: 'Official guide for simulating ESP32 projects in Wokwi.',
-    primary: false,
   },
   {
     title: 'MPU6050 Wokwi Documentation',
     url: LINKS.wokwiMpuDocs,
     description: 'MPU6050 part reference for the Wokwi simulator.',
-    primary: false,
   },
 ]
 
@@ -66,22 +62,30 @@ export default function SimulationPage() {
           description="Wokwi supports ESP32 firmware simulation and an MPU6050 virtual part. You can test I²C reads and MQTT (via simulated networking) before deploying to real hardware."
         />
         <div className="grid gap-4 sm:grid-cols-2">
-          {WOKWI_LINKS.map((l) => (
+          {WOKWI_LINKS.map((l, index) => (
             <a
               key={l.url}
               href={l.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group flex items-start gap-4 rounded-lg border p-5 transition-all hover:border-primary/50 hover:bg-accent ${l.primary ? 'border-primary/40 bg-primary/5' : 'border-border bg-card'}`}
+              className={[
+                'group flex items-start gap-4 rounded-lg border p-5 transition-colors duration-200',
+                index === 0
+                  ? 'border-primary/40 bg-primary/5 text-foreground hover:border-primary/50 hover:bg-primary/10'
+                  : 'border-border bg-card text-foreground hover:border-primary/50 hover:bg-accent',
+              ].join(' ')}
             >
-              <span className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-md bg-secondary text-primary">
+              <span className={[
+                'mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-md',
+                index === 0 ? 'bg-primary/10 text-primary' : 'bg-secondary text-primary',
+              ].join(' ')}>
                 <CircuitBoard className="size-5" aria-hidden="true" />
               </span>
               <div className="min-w-0 flex-1">
-                <p className="font-semibold leading-snug group-hover:text-primary">{l.title}</p>
+                <p className={['font-semibold leading-snug', index === 0 ? 'text-foreground' : 'text-foreground'].join(' ')}>{l.title}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{l.description}</p>
               </div>
-              <ExternalLink className="mt-0.5 size-4 shrink-0 text-muted-foreground group-hover:text-primary" aria-hidden="true" />
+              <ExternalLink className={['mt-0.5 size-4 shrink-0', index === 0 ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'].join(' ')} aria-hidden="true" />
               <span className="sr-only">(opens in new tab)</span>
             </a>
           ))}

@@ -31,15 +31,15 @@ export default function OverviewPage() {
       
       <Section>
         <div className="grid gap-6 lg:grid-cols-2">
-          <details className="group rounded-lg bg-primary text-primary-foreground">
-            <summary className="flex cursor-pointer list-none items-center gap-2 p-6">
-              <TriangleAlert className="size-5" aria-hidden="true" />
-              <h2 className="text-lg font-bold">Problem Statement</h2>
-              <span className="ml-auto rounded-full border border-primary-foreground/30 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide">
+          <details className="group overflow-hidden rounded-lg border border-border bg-card text-foreground transition-all duration-200 ease-out open:bg-primary open:text-primary-foreground open:shadow-md open:shadow-primary/10">
+            <summary className="flex cursor-pointer list-none items-center gap-2 rounded-lg bg-card px-4 py-3 text-left transition-all duration-200 group-open:bg-primary group-open:text-primary-foreground group-open:shadow-none sm:px-5">
+              <TriangleAlert className="size-4 shrink-0" aria-hidden="true" />
+              <h2 className="text-base font-bold sm:text-lg">Problem Statement</h2>
+              <span className="ml-auto rounded-full border border-current/30 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide">
                 Read
               </span>
             </summary>
-            <p className="border-t border-primary-foreground/20 px-6 py-4 leading-relaxed opacity-95">
+            <p className="border-t border-current/15 px-4 py-3 text-sm leading-relaxed opacity-95 sm:px-5 sm:py-4 sm:text-base">
               Conventional IoT sensing systems often collect and transmit data at a fixed rate, even when the
               environment is stable, leading to unnecessary sensing, communication and energy consumption.
             </p>

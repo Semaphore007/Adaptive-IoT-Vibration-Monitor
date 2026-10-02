@@ -131,16 +131,31 @@ export function DataBadge({ label }: { label: DataLabel }) {
   )
 }
 
-export function Notice({ children, tone = 'info' }: { children: ReactNode; tone?: 'info' | 'warn' }) {
+export function Notice({ children, tone = 'info', className }: { children: ReactNode; tone?: 'info' | 'warn'; className?: string }) {
   return (
-    <div
-      role="note"
+    <details
       className={cn(
-        'rounded-md border px-4 py-3 text-sm leading-relaxed',
-        tone === 'warn' ? 'border-warn/30 bg-warn/5 text-foreground' : 'border-info/30 bg-info/5 text-foreground',
+        'group rounded-md border text-sm leading-relaxed transition-colors',
+        tone === 'warn'
+          ? 'border-warn/30 bg-warn/5 text-foreground'
+          : 'border-info/30 bg-info/5 text-foreground',
+        className,
       )}
     >
-      {children}
-    </div>
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 font-medium text-foreground marker:content-none hover:opacity-90">
+        <span className="flex items-center gap-2">
+          <span className="inline-flex size-6 items-center justify-center rounded-full border border-current/40 bg-background/40 text-[10px] font-bold uppercase tracking-wide">
+            {tone === 'warn' ? '!' : 'i'}
+          </span>
+          <span>{tone === 'warn' ? 'Warning' : 'Note'}</span>
+        </span>
+        <span className="rounded-full border border-current/30 bg-background/30 px-2 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground group-open:text-foreground">
+          Read
+        </span>
+      </summary>
+      <div className="border-t border-current/10 px-4 pb-4 pt-3 text-muted-foreground [&_p:last-child]:mb-0">
+        {children}
+      </div>
+    </details>
   )
 }

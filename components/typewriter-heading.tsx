@@ -42,9 +42,15 @@ export function TypewriterHeading() {
   return (
     <h1
       aria-label={TITLE}
-      className="mt-5 min-h-[2.1em] text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:min-h-[1.05em] sm:text-5xl lg:text-6xl"
+      className="mt-5 grid text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
     >
-      <span aria-hidden="true">
+      <span className="invisible col-start-1 row-start-1" aria-hidden="true">
+        {TITLE.slice(0, VIBRATION_START)}
+        <span className="text-primary">{TITLE.slice(VIBRATION_START, VIBRATION_END)}</span>
+        {TITLE.slice(VIBRATION_END, PROJECT_NAME.length)}
+        <span className="text-primary">{TITLE.slice(PROJECT_NAME.length)}</span>
+      </span>
+      <span className="col-start-1 row-start-1" aria-hidden="true">
         {TITLE.slice(0, Math.min(characterCount, VIBRATION_START))}
         <span className="text-primary">
           {TITLE.slice(VIBRATION_START, Math.min(characterCount, VIBRATION_END))}

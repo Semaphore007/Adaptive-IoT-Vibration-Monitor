@@ -56,11 +56,18 @@ export function TypingCode({ code, language, title = 'main.ino' }: { code: strin
         </>
       }
     >
-      <pre className="overflow-x-hidden p-4 font-mono text-[13px] leading-6" aria-hidden="true">
-        <code className="block">
-          <HighlightedLines code={code.slice(0, count)} caret />
-        </code>
-      </pre>
+      <div className="relative">
+        <pre className="invisible p-4 font-mono text-[13px] leading-6" aria-hidden="true">
+          <code className="block">
+            <HighlightedLines code={code} />
+          </code>
+        </pre>
+        <pre className="absolute inset-0 overflow-x-hidden p-4 font-mono text-[13px] leading-6" aria-hidden="true">
+          <code className="block">
+            <HighlightedLines code={code.slice(0, count)} caret />
+          </code>
+        </pre>
+      </div>
     </CodeFrame>
   )
 }

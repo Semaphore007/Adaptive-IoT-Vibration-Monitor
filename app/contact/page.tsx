@@ -70,7 +70,7 @@ export default function ContactPage() {
         </Card>
 
         {/* Contact channels */}
-        <SectionHeading eyebrow="Connect" title="Find me on" className="mt-12" />
+        <SectionHeading eyebrow="Connect" title="Find me on" className="mt-16" />
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {CHANNELS.map((c) => (
             <li key={c.label}>

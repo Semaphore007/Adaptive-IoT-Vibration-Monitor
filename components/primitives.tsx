@@ -89,14 +89,16 @@ export function SectionHeading({
   title,
   description,
   action,
+  className,
 }: {
   eyebrow?: string
   title: string
   description?: string
   action?: ReactNode
+  className?: string
 }) {
   return (
-    <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div className={cn('mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between', className)}>
       <div className="max-w-3xl">
         {eyebrow && <p className="text-xs font-semibold uppercase tracking-widest text-primary">{eyebrow}</p>}
         <h2 className="mt-1 text-balance text-2xl font-bold md:text-3xl">{title}</h2>

@@ -34,11 +34,11 @@ export function tokenizeLine(line: string): Token[] {
 }
 
 export const TOKEN_CLASS: Record<TokenKind, string> = {
-  comment: 'text-[#6b8a7f] italic',
-  string: 'text-[#fcd34d]',
-  keyword: 'text-[#5eead4]',
-  number: 'text-[#fdba74]',
-  fn: 'text-[#93c5fd]',
-  preproc: 'text-[#f9a8d4]',
+  comment: 'text-[var(--code-comment)] italic',
+  string: 'text-[var(--code-string)]',
+  keyword: 'text-[var(--code-keyword)]',
+  number: 'text-[var(--code-number)]',
+  fn: 'text-[var(--code-function)]',
+  preproc: 'text-[var(--code-preproc)]',
   plain: '',
 }

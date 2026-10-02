@@ -56,8 +56,8 @@ export function TypingCode({ code, language, title = 'main.ino' }: { code: strin
         </>
       }
     >
-      <pre className="min-h-[18rem] overflow-x-auto p-4 font-mono text-[13px] leading-6" aria-hidden="true">
-        <code className="table">
+      <pre className="overflow-x-hidden p-4 font-mono text-[13px] leading-6" aria-hidden="true">
+        <code className="block">
           <HighlightedLines code={code.slice(0, count)} caret />
         </code>
       </pre>

@@ -24,8 +24,8 @@ export function SiteHeader() {
           <span className="truncate text-sm tracking-tight">{PROJECT.shortName}</span>
         </Link>
 
-        <nav aria-label="Main" className="ml-auto hidden xl:block">
-          <ul className="flex items-center gap-0.5">
+        <nav aria-label="Main" className="hidden min-w-0 flex-1 justify-center xl:flex">
+          <ul className="flex items-center gap-0.5 whitespace-nowrap">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <Link
@@ -44,7 +44,7 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="ml-auto flex items-center gap-2 xl:ml-2">
+        <div className="ml-auto flex shrink-0 items-center gap-2 xl:ml-2">
           <ThemeToggle />
           <a
             href={PROJECT_REPO_URL}

@@ -7,9 +7,9 @@ export function HighlightedLines({ code, caret }: { code: string; caret?: boolea
   return (
     <>
       {lines.map((line, i) => (
-        <div key={i} className="table-row">
-          <span className="table-cell select-none pr-4 text-right text-code-foreground/35">{i + 1}</span>
-          <span className="table-cell whitespace-pre">
+        <div key={i} className="flex min-w-0">
+          <span className="shrink-0 select-none pr-4 text-right text-code-foreground/50">{i + 1}</span>
+          <span className="min-w-0 whitespace-pre-wrap break-words [overflow-wrap:anywhere]">
             {tokenizeLine(line).map((tok, j) => (
               <span key={j} className={TOKEN_CLASS[tok.kind]}>
                 {tok.text}
@@ -61,8 +61,8 @@ export function CodeFrame({
 export function CodePreview({ code, language, title = 'snippet' }: { code: string; language: string; title?: string }) {
   return (
     <CodeFrame title={title} language={language} actions={<CopyButton text={code} />}>
-      <pre className="overflow-x-auto p-4 font-mono text-[13px] leading-6">
-        <code className="table">
+      <pre className="overflow-x-hidden p-4 font-mono text-[13px] leading-6">
+        <code className="block">
           <HighlightedLines code={code} />
         </code>
       </pre>

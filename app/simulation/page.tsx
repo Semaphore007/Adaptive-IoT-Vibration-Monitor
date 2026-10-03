@@ -62,30 +62,22 @@ export default function SimulationPage() {
           description="Wokwi supports ESP32 firmware simulation and an MPU6050 virtual part. You can test I²C reads and MQTT (via simulated networking) before deploying to real hardware."
         />
         <div className="grid gap-4 sm:grid-cols-2">
-          {WOKWI_LINKS.map((l, index) => (
+          {WOKWI_LINKS.map((l) => (
             <a
               key={l.url}
               href={l.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={[
-                'group flex items-start gap-4 rounded-lg border p-5 transition-colors duration-200',
-                index === 0
-                  ? 'border-primary/40 bg-primary/5 text-foreground hover:border-primary/50 hover:bg-primary/10'
-                  : 'border-border bg-card text-foreground hover:border-primary/50 hover:bg-accent',
-              ].join(' ')}
+              className="group flex items-start gap-4 rounded-lg border border-border bg-card p-5 text-foreground transition-colors duration-200 hover:border-primary/50 hover:bg-accent"
             >
-              <span className={[
-                'mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-md',
-                index === 0 ? 'bg-primary/10 text-primary' : 'bg-secondary text-primary',
-              ].join(' ')}>
+              <span className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-md bg-secondary text-primary">
                 <CircuitBoard className="size-5" aria-hidden="true" />
               </span>
               <div className="min-w-0 flex-1">
-                <p className={['font-semibold leading-snug', index === 0 ? 'text-foreground' : 'text-foreground'].join(' ')}>{l.title}</p>
+                <p className="font-semibold leading-snug text-foreground">{l.title}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{l.description}</p>
               </div>
-              <ExternalLink className={['mt-0.5 size-4 shrink-0', index === 0 ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'].join(' ')} aria-hidden="true" />
+              <ExternalLink className="mt-0.5 size-4 shrink-0 text-muted-foreground group-hover:text-primary" aria-hidden="true" />
               <span className="sr-only">(opens in new tab)</span>
             </a>
           ))}
